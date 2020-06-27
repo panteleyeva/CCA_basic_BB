@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js",
+    "test2": "npm run clean && wdio wdio.conf.js && npm run report",
+    "report": "allure generate --clean && allure open",
+    "clean": "rimraf allure-results"
   },
   "keywords": [],
   "author": "",
