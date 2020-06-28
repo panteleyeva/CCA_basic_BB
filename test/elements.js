@@ -1,5 +1,7 @@
 //import assert from 'assert';
 //const {expect} = require('chai');
+const general = require ('./../data/selectors.json').general;
+
 
 describe('Complex Counter App', function () { //define suite title by passing a string
 
@@ -17,13 +19,13 @@ describe('Complex Counter App', function () { //define suite title by passing a 
     describe('Elements exist', function () {
 
         it('TC-002 Header', function () {
-            const header = $('h1').isDisplayed();
-            expect(header).toEqual(true);
+            const actual = $(general.header).isDisplayed();
+            expect(actual).toEqual(true);
         })
 
         it('TC-003 Total Result', function () {
-            const header = $('h3.total-count').isDisplayed();
-            expect(header).toEqual(true);
+            const actual = $(general.totalResult).isDisplayed();
+            expect(actual).toEqual(true);
         })
 
         it('TC-004 Counter Name', function () {
