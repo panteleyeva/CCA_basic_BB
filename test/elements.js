@@ -1,7 +1,7 @@
 //import assert from 'assert';
 //const {expect} = require('chai');
 const general = require ('./../data/selectors.json').general;
-
+const generalValues = require ('./../data/expected.json').generalValues;
 
 describe('Complex Counter App', function () { //define suite title by passing a string
 
@@ -28,11 +28,39 @@ describe('Complex Counter App', function () { //define suite title by passing a 
             expect(actual).toEqual(true);
         })
 
-        it('TC-004 Counter Name', function () {
-            const header = $$('h3')[1].isDisplayed();
-            expect(header).toEqual(true);
+        it('TC-004 Add Name Field', function () {
+            const actual = $(general.addNameField).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+
+        it('TC-005 Add label name field', function () {
+            const actual = $$(general.addNameFieldLabel)[$$(general.addNameFieldLabel).length-2].isDisplayed();
+            expect(actual).toEqual(true);
+        })
+
+        it('TC-006 Default Value Field', function () {
+            const actual = $(general.defaultValueField).isDisplayed();
+            expect(actual).toEqual(true);
+        })
+
+        it('TC-007 Label for Default Value Field', function () {
+            const actual = $$(general.defaultValueFieldLabel)[$$(general.defaultValueFieldLabel).length-1].isDisplayed();
+            expect(actual).toEqual(true);
+        })
+
+        it('TC-008 Add Counter', function () {
+            const actual = $(general.addCounterBtn).isDisplayed();
+            expect(actual).toEqual(true);
         })
 
     });
+
+    describe('Elements value', function () {
+
+        it('TC-010 Header = Counters', function () {
+            const actual = $(general.header).getText();
+            expect(actual).toEqual(generalValues.header);
+        })
+    })
 
 });
